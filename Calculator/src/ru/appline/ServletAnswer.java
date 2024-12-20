@@ -23,11 +23,19 @@ public class ServletAnswer extends HttpServlet {
         StringBuffer stringBuffer = new StringBuffer();
         String line;
 
-        BufferedReader bufferedReader = request.getReader();
-        while ((line = bufferedReader.readLine()) != null)
+        try
         {
-            stringBuffer.append(line);
+            BufferedReader bufferedReader = request.getReader();
+            while ((line = bufferedReader.readLine()) != null)
+            {
+                stringBuffer.append(line);
+            }
         }
+        catch (Exception e)
+        {
+            System.out.println("Error");
+        }
+
         JsonObject jsonObject = gson.fromJson(String.valueOf(stringBuffer), JsonObject.class);
         int value_1 = jsonObject.get("a").getAsInt();
         int value_2 = jsonObject.get("b").getAsInt();
