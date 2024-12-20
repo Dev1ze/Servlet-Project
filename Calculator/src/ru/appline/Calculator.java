@@ -2,24 +2,24 @@ package ru.appline;
 
 public class Calculator
 {
-    private int value_1;
-    private int value_2;
-    private String operation;
+    private int a;
+    private int b;
+    private String math;
 
-    public Calculator(int value_1, int value_2, String operation)
+    public Calculator(int a, int b, String math)
     {
-        this.value_1 = value_1;
-        this.value_2 = value_2;
-        this.operation = operation;
+        this.a = a;
+        this.b = b;
+        this.math = math;
     }
 
     public int getResult()
     {
-        if (operation.equals("+")) return Summation(value_1, value_2);
-        else if (operation.equals("-")) return Subtraction(value_1, value_2);
-        else if (operation.equals("*")) return Multiplication(value_1, value_2);
-        else if (operation.equals("/")) return Division(value_1, value_2);
-        else throw new IllegalArgumentException("Некорректная операция: " + operation);
+        if (math.equals("+")) return Summation(a, b);
+        else if (math.equals("-")) return Subtraction(a, b);
+        else if (math.equals("*")) return Multiplication(a, b);
+        else if (math.equals("/")) return Division(a, b);
+        else throw new IllegalArgumentException("Некорректная операция: " + math);
     }
 
     private int Summation(int value_1, int value_2)
